@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonardo Tello</title>
+<meta name="description" content="Leonardo Tello — Programming student at UTN FRGP. Backend & AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg-soft: #161b22;
+    --border: #2a313c;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #7ee787;
+    --accent-2: #79c0ff;
+    --warn: #e3b341;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+    --sans: "Inter", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(13,17,23,.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .logo { font-family: var(--mono); font-weight: 700; color: var(--accent); }
+  .logo span { color: var(--muted); }
+  .nav-links { display: flex; gap: 20px; align-items: center; font-size: 14px; }
+  .nav-links a { color: var(--muted); }
+  .nav-links a:hover { color: var(--text); text-decoration: none; }
+  .lang {
+    font-family: var(--mono); font-size: 12px;
+    background: var(--bg-soft); color: var(--text);
+    border: 1px solid var(--border); border-radius: 6px;
+    padding: 4px 10px; cursor: pointer;
+  }
+  .lang:hover { border-color: var(--accent); }
+  @media (max-width: 600px) { .nav-links a { display: none; } }
+
+  /* Hero */
+  .hero { padding: 96px 0 72px; }
+  .prompt { font-family: var(--mono); color: var(--accent); font-size: 14px; margin-bottom: 16px; }
+  .prompt::after { content: "_"; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  h1 { font-size: clamp(36px, 7vw, 56px); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .role { font-family: var(--mono); color: var(--accent-2); font-size: clamp(14px, 2.5vw, 17px); margin-bottom: 24px; }
+  .hero p.lead { color: var(--muted); max-width: 620px; font-size: 17px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .btn {
+    font-family: var(--mono); font-size: 14px;
+    padding: 10px 18px; border-radius: 8px;
+    border: 1px solid var(--border); color: var(--text);
+  }
+  .btn:hover { text-decoration: none; border-color: var(--accent); }
+  .btn.primary { background: var(--accent); color: #0d1117; border-color: var(--accent); font-weight: 700; }
+  .btn.primary:hover { filter: brightness(1.1); }
+
+  /* Sections */
+  section { padding: 56px 0; border-top: 1px solid var(--border); }
+  h2 { font-family: var(--mono); font-size: 15px; color: var(--accent); margin-bottom: 28px; font-weight: 500; }
+  h2::before { content: "// "; color: var(--muted); }
+  .about p { color: var(--text); margin-bottom: 14px; max-width: 680px; }
+  .about p.muted { color: var(--muted); }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-top: 24px; }
+  .fact { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+  .fact b { display: block; font-family: var(--mono); font-size: 20px; color: var(--accent-2); }
+  .fact span { font-size: 13px; color: var(--muted); }
+
+  /* Projects */
+  .projects { display: grid; gap: 16px; }
+  .card {
+    background: var(--bg-soft); border: 1px solid var(--border);
+    border-radius: 12px; padding: 24px;
+    transition: border-color .2s, transform .2s;
+  }
+  .card:hover { border-color: #3d4654; transform: translateY(-2px); }
+  .card.featured { border-color: rgba(126,231,135,.35); }
+  .card-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+  .card h3 { font-size: 20px; }
+  .badge { font-family: var(--mono); font-size: 11px; padding: 3px 8px; border-radius: 20px; border: 1px solid; }
+  .badge.wip { color: var(--warn); border-color: rgba(227,179,65,.4); }
+  .badge.done { color: var(--accent); border-color: rgba(126,231,135,.4); }
+  .card .context { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-bottom: 12px; }
+  .card p { color: var(--muted); margin-bottom: 12px; }
+  .card ul { list-style: none; margin-bottom: 16px; }
+  .card li { color: var(--text); font-size: 15px; padding-left: 18px; position: relative; margin-bottom: 4px; }
+  .card li::before { content: "›"; position: absolute; left: 0; color: var(--accent); font-family: var(--mono); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .tag { font-family: var(--mono); font-size: 12px; color: var(--accent-2); background: rgba(121,192,255,.08); padding: 3px 9px; border-radius: 6px; }
+  .card .link { font-family: var(--mono); font-size: 13px; }
+  .card .link.soon { color: var(--muted); }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .skill-group h4 { font-family: var(--mono); font-size: 13px; color: var(--muted); font-weight: 500; margin-bottom: 10px; }
+
+  /* Contact */
+  .contact p { color: var(--muted); max-width: 600px; margin-bottom: 24px; }
+  .contact-list { display: grid; gap: 10px; font-family: var(--mono); font-size: 14px; }
+  .contact-list div { display: flex; gap: 12px; flex-wrap: wrap; }
+  .contact-list span { color: var(--muted); min-width: 90px; }
+
+  footer { border-top: 1px solid var(--border); padding: 28px 0 40px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">leo<span>.tello</span></div>
+    <div class="nav-links">
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#projects" data-i18n="nav_projects">Projects</a>
+      <a href="#skills" data-i18n="nav_skills">Skills</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+      <button class="lang" id="langBtn" aria-label="Change language">ES</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <header class="hero">
+    <div class="prompt">~/leonardo-tello $ whoami</div>
+    <h1>Leonardo Tello</h1>
+    <div class="role" data-i18n="role">Programming Student · Backend &amp; AI</div>
+    <p class="lead" data-i18n="lead">Final-year Programming student at UTN FRGP. I build backend systems with C#, Java and SQL, and I'm working on a computer vision project that analyzes tennis strokes.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projects" data-i18n="cta_projects">See projects</a>
+      <a class="btn" href="https://github.com/FaridTello" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/leonardo-tello-moscoso" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </header>
+
+  <section id="about" class="about">
+    <h2 data-i18n="nav_about">About</h2>
+    <p data-i18n="about_1">I'm studying the University Technical Degree in Programming at UTN FRGP, where I've worked on team projects in C#, C++ and SQL Server. I'm now learning Java and Spring Boot to focus on backend development.</p>
+    <p data-i18n="about_2">I've also been a tennis instructor since 2024. That's where my main project comes from: using computer vision to analyze tennis technique.</p>
+    <p class="muted" data-i18n="about_3">I'm looking for my first role as a Trainee or Junior Developer in backend or AI.</p>
+    <div class="facts">
+      <div class="fact"><b>14/17</b><span data-i18n="fact_courses">courses passed</span></div>
+      <div class="fact"><b>8.36</b><span data-i18n="fact_gpa">GPA (out of 10)</span></div>
+      <div class="fact"><b>CS50x</b><span data-i18n="fact_cs50">Harvard, completed</span></div>
+      <div class="fact"><b>B1</b><span data-i18n="fact_english">English (EF SET)</span></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 data-i18n="nav_projects">Projects</h2>
+    <div class="projects">
+
+      <article class="card featured">
+        <div class="card-head">
+          <h3>TennisShotAI</h3>
+          <span class="badge wip" data-i18n="wip">in progress</span>
+        </div>
+        <div class="context" data-i18n="tsa_ctx">Personal project · Computer vision</div>
+        <p data-i18n="tsa_desc">A system that classifies tennis strokes from video using pose estimation. The goal is to turn it into an analysis tool for coaches and tennis academies.</p>
+        <ul>
+          <li data-i18n="tsa_1">Pose extraction with MediaPipe PoseLandmarker</li>
+          <li data-i18n="tsa_2">World landmarks, so results don't depend on camera distance</li>
+          <li data-i18n="tsa_3">GroupKFold evaluation to avoid data leakage between players</li>
+        </ul>
+        <div class="tags"><span class="tag">Python</span><span class="tag">MediaPipe</span><span class="tag">Machine Learning</span></div>
+        <span class="link soon" data-i18n="soon">Repository coming soon</span>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h3>Clinidev</h3>
+          <span class="badge done" data-i18n="done">completed</span>
+        </div>
+        <div class="context" data-i18n="cli_ctx">Programming III · UTN FRGP · Team of 6</div>
+        <p data-i18n="cli_desc">A web app for clinics to replace spreadsheets and manual processes, centralizing doctors, schedules, appointments and users.</p>
+        <ul>
+          <li data-i18n="cli_1">Three-layer architecture: Data, Business, Presentation</li>
+          <li data-i18n="cli_2">Stored procedures for CRUD operations</li>
+          <li data-i18n="cli_3">Logical deletion with active/inactive status</li>
+          <li data-i18n="cli_4">Schedule validation to prevent overlapping appointments</li>
+        </ul>
+        <div class="tags"><span class="tag">C#</span><span class="tag">ASP.NET WebForms</span><span class="tag">SQL Server</span></div>
+        <a class="link" href="https://github.com/FaridTello/clinidev" target="_blank" rel="noopener" data-i18n="repo">View repository →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h3>TennisSystemGestion</h3>
+          <span class="badge done" data-i18n="done">completed</span>
+        </div>
+        <div class="context" data-i18n="tsg_ctx">CS50x Final Project · Harvard</div>
+        <p data-i18n="tsg_desc">A management system for tennis academies, built as my final project for Harvard's CS50x.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLite</span></div>
+        <a class="link" href="https://github.com/FaridTello/TennisSystemGestion" target="_blank" rel="noopener" data-i18n="repo">View repository →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <h3>Enfrentamientos Top 4</h3>
+          <span class="badge done" data-i18n="done">completed</span>
+        </div>
+        <div class="context" data-i18n="et_ctx">Programming II · UTN FRGP</div>
+        <p data-i18n="et_desc">A console management system for football matches between four clubs, focused on Object-Oriented Programming.</p>
+        <ul>
+          <li data-i18n="et_1">Clubs, players and matches modeled as classes</li>
+          <li data-i18n="et_2">Inheritance, composition and dynamic memory management</li>
+          <li data-i18n="et_3">Data persistence with binary files, CRUD-style modules</li>
+        </ul>
+        <div class="tags"><span class="tag">C++</span><span class="tag">OOP</span></div>
+        <a class="link" href="https://github.com/FaridTello/Enfrentamientos-Top-4" target="_blank" rel="noopener" data-i18n="repo">View repository →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 data-i18n="nav_skills">Skills</h2>
+    <div class="skills">
+      <div class="skill-group">
+        <h4 data-i18n="sk_lang">Languages</h4>
+        <div class="tags"><span class="tag">C#</span><span class="tag">Java</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">SQL</span></div>
+      </div>
+      <div class="skill-group">
+        <h4 data-i18n="sk_fw">Frameworks</h4>
+        <div class="tags"><span class="tag">ASP.NET WebForms</span><span class="tag">ASP.NET Web API</span><span class="tag">Flask</span><span class="tag">React</span></div>
+      </div>
+      <div class="skill-group">
+        <h4 data-i18n="sk_db">Databases &amp; tools</h4>
+        <div class="tags"><span class="tag">SQL Server</span><span class="tag">SQLite</span><span class="tag">Git</span><span class="tag">Visual Studio</span><span class="tag">VS Code</span></div>
+      </div>
+      <div class="skill-group">
+        <h4 data-i18n="sk_learn">Currently learning</h4>
+        <div class="tags"><span class="tag">Spring Boot</span><span class="tag">REST APIs</span><span class="tag">MediaPipe</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 data-i18n="nav_contact">Contact</h2>
+    <p data-i18n="contact_text">If you have an opportunity or want to talk about a project, write to me.</p>
+    <div class="contact-list">
+      <div><span>email</span><a href="mailto:leonardotello13@gmail.com">leonardotello13@gmail.com</a></div>
+      <div><span>linkedin</span><a href="https://www.linkedin.com/in/leonardo-tello-moscoso" target="_blank" rel="noopener">in/leonardo-tello-moscoso</a></div>
+      <div><span>github</span><a href="https://github.com/FaridTello" target="_blank" rel="noopener">FaridTello</a></div>
+      <div><span>leetcode</span><a href="https://leetcode.com/u/leonardotelloo/" target="_blank" rel="noopener">leonardotelloo</a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Leonardo Tello · Tigre, Buenos Aires</div>
+</footer>
+
+<script>
+const i18n = {
+  es: {
+    nav_about: "Sobre mí", nav_projects: "Proyectos", nav_skills: "Skills", nav_contact: "Contacto",
+    role: "Estudiante de Programación · Backend & IA",
+    lead: "Estudiante de último año de Programación en la UTN FRGP. Desarrollo sistemas backend con C#, Java y SQL, y estoy trabajando en un proyecto de visión por computadora que analiza golpes de tenis.",
+    cta_projects: "Ver proyectos",
+    about_1: "Estudio la Tecnicatura Universitaria en Programación en la UTN FRGP, donde trabajé en proyectos en equipo con C#, C++ y SQL Server. Ahora estoy aprendiendo Java y Spring Boot para orientarme al desarrollo backend.",
+    about_2: "Además, soy profesor de tenis desde 2024. De ahí sale mi proyecto principal: usar visión por computadora para analizar la técnica en el tenis.",
+    about_3: "Busco mi primer trabajo como Trainee o Junior Developer en backend o IA.",
+    fact_courses: "materias aprobadas", fact_gpa: "promedio (sobre 10)", fact_cs50: "Harvard, completado", fact_english: "Inglés (EF SET)",
+    wip: "en desarrollo", done: "terminado", soon: "Repositorio próximamente", repo: "Ver repositorio →",
+    tsa_ctx: "Proyecto personal · Visión por computadora",
+    tsa_desc: "Un sistema que clasifica golpes de tenis a partir de video usando estimación de pose. La idea es convertirlo en una herramienta de análisis para entrenadores y academias.",
+    tsa_1: "Extracción de pose con MediaPipe PoseLandmarker",
+    tsa_2: "World landmarks, para que los resultados no dependan de la distancia a la cámara",
+    tsa_3: "Evaluación con GroupKFold para evitar fuga de datos entre jugadores",
+    cli_ctx: "Programación III · UTN FRGP · Equipo de 6",
+    cli_desc: "Una aplicación web para clínicas que reemplaza planillas y procesos manuales, centralizando médicos, horarios, turnos y usuarios.",
+    cli_1: "Arquitectura en tres capas: Datos, Negocio y Vistas",
+    cli_2: "Procedimientos almacenados para ABML",
+    cli_3: "Bajas lógicas con estado activo/inactivo",
+    cli_4: "Validación de horarios para evitar turnos superpuestos",
+    tsg_ctx: "Proyecto final de CS50x · Harvard",
+    tsg_desc: "Un sistema de gestión para academias de tenis, hecho como proyecto final del CS50x de Harvard.",
+    et_ctx: "Programación II · UTN FRGP",
+    et_desc: "Un sistema de gestión en consola para partidos de fútbol entre cuatro clubes, enfocado en Programación Orientada a Objetos.",
+    et_1: "Clubes, jugadores y partidos modelados como clases",
+    et_2: "Herencia, composición y manejo de memoria dinámica",
+    et_3: "Persistencia en archivos binarios, módulos estilo ABML",
+    sk_lang: "Lenguajes", sk_fw: "Frameworks", sk_db: "Bases de datos y herramientas", sk_learn: "Aprendiendo ahora",
+    contact_text: "Si tenés una oportunidad o querés hablar de un proyecto, escribime."
+  }
+};
+
+// Guardar los textos originales en inglés
+const en = {};
+document.querySelectorAll("[data-i18n]").forEach(el => {
+  const k = el.dataset.i18n;
+  if (!(k in en)) en[k] = el.textContent;
+});
+i18n.en = en;
+
+function setLang(lang) {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const t = i18n[lang][el.dataset.i18n];
+    if (t) el.textContent = t;
+  });
+  document.documentElement.lang = lang;
+  document.getElementById("langBtn").textContent = lang === "en" ? "ES" : "EN";
+  try { localStorage.setItem("lang", lang); } catch (e) {}
+}
+
+let current = "en";
+try { current = localStorage.getItem("lang") || "en"; } catch (e) {}
+if (current !== "en") setLang(current);
+
+document.getElementById("langBtn").addEventListener("click", () => {
+  current = current === "en" ? "es" : "en";
+  setLang(current);
+});
+</script>
+</body>
+</html>
