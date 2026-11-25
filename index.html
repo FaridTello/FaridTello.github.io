@@ -8,7 +8,7 @@
 <meta name="author" content="Leonardo Farid Tello Moscoso">
 <link rel="canonical" href="https://leonardotello.dev/">
 <meta property="og:title" content="Leonardo Tello | Backend Developer">
-<meta property="og:description" content="Backend developer and programming student at UTN FRGP. Java, C# and SQL. Open to Trainee and Junior roles.">
+<meta property="og:description" content="Backend developer and programming student at UTN FRGP. Java, C# and SQL. Open to Junior roles.">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://leonardotello.dev/">
 <meta property="og:image" content="https://leonardotello.dev/img/leo.jpg">
@@ -26,7 +26,7 @@
   "@type": "Person",
   "name": "Leonardo Farid Tello Moscoso",
   "alternateName": "Leonardo Tello",
-  "jobTitle": "Backend Developer (Trainee / Junior)",
+  "jobTitle": "Junior Backend Developer",
   "url": "https://leonardotello.dev/",
   "image": "https://leonardotello.dev/img/leo.jpg",
   "address": { "@type": "PostalAddress", "addressLocality": "General Pacheco, Tigre", "addressRegion": "Buenos Aires", "addressCountry": "AR" },
@@ -110,13 +110,18 @@
   .topbar { position: sticky; top: 0; z-index: 40; background: var(--nav-bg); backdrop-filter: blur(14px) saturate(160%); -webkit-backdrop-filter: blur(14px) saturate(160%); border-bottom: 1px solid transparent; transition: border-color .25s, background .25s; }
   .topbar.scrolled { border-color: var(--line); background: var(--nav-bg-2); }
   .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 16px; }
-  .logo { display: flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 700; font-size: 16.5px; letter-spacing: -0.01em; }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 700; font-size: 17px; letter-spacing: -0.01em; }
   .logo { white-space: nowrap; }
-  @media (max-width: 420px) { .logo { font-size: 14.5px; gap: 8px; } .nav-right { gap: 6px; } .lang { padding: 7px 11px; } }
-  .logo-mark { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--ink); color: var(--on-ink); font-size: 13px; font-weight: 800; letter-spacing: .02em; }
+  @media (max-width: 420px) { .logo { font-size: 14.5px; gap: 8px; } .logo-mark { width: 38px; height: 38px; font-size: 14.5px; } .nav-right { gap: 6px; } .lang { padding: 7px 11px; } }
+  .logo-mark { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: var(--ink); color: var(--on-ink); font-size: 16px; font-weight: 800; letter-spacing: .01em; position: relative; }
+  .logo-mark::after { content: ""; position: absolute; left: 50%; bottom: 7px; width: 10px; height: 2.5px; margin-left: -5px; border-radius: 2px; background: var(--accent-2); }
+  .logo-mark span { margin-top: -3px; }
   .nav-links { display: flex; align-items: center; gap: 4px; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 500; padding: 7px 12px; border-radius: 999px; transition: color .2s, background .2s; }
   .nav-links a:hover { color: var(--text); background: var(--hover); }
+  .nav-links a.cv-link { display: inline-flex; align-items: center; gap: 6px; margin-left: 6px; color: var(--on-ink); background: var(--ink); font-weight: 600; }
+  .nav-links a.cv-link:hover { background: var(--accent-2); color: #fff; }
+  .nav-links a.cv-link svg { width: 15px; height: 15px; }
   .nav-links a.active { color: var(--accent); background: var(--accent-soft); }
   .nav-right { display: flex; align-items: center; gap: 10px; }
   .lang { font-size: 13px; font-weight: 700; color: var(--text); background: var(--white); border: 1px solid var(--line-2); border-radius: 999px; padding: 7px 14px; cursor: pointer; transition: border-color .2s; }
@@ -142,7 +147,6 @@
   .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background-image: radial-gradient(var(--dots) 1px, transparent 1px); background-size: 22px 22px; -webkit-mask-image: radial-gradient(ellipse at 75% 30%, #000 10%, transparent 65%); mask-image: radial-gradient(ellipse at 75% 30%, #000 10%, transparent 65%); }
   .hero-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 56px; align-items: center; }
   .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: .16em; font-size: 12.5px; font-weight: 700; margin-bottom: 22px; }
-  .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--accent); border-radius: 2px; }
   h1 { font-size: clamp(44px, 7vw, 80px); line-height: 1.02; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 24px; color: var(--text); }
   h1 .grad { color: var(--accent); }
   .lead { color: var(--soft); font-size: clamp(17px, 2vw, 19.5px); max-width: 600px; }
@@ -248,6 +252,16 @@
   .wa svg { width: 22px; height: 22px; color: #fff; }
   @media (max-width: 900px) { .featured { grid-template-columns: 1fr; } .f-visual { border-left: 0; border-bottom: 1px solid var(--line); order: -1; padding: 28px 20px; } .f-body { padding: 28px 24px; } .browser { transform: none; } }
 
+  .f-visual { flex-direction: column; gap: 14px; }
+  .browser { display: block; text-decoration: none; }
+  .b-shot { height: 380px; overflow: hidden; background: #fff; }
+  .b-shot img { width: 100%; height: auto; display: block; transform: translateY(0); transition: transform 9s ease-in-out; }
+  @media (hover: hover) { .browser:hover .b-shot img { transform: translateY(calc(-100% + 380px)); transition-duration: 9s; } }
+  @media (hover: none) { .b-shot { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; } }
+  .b-hint { font-size: 13px; color: var(--muted); }
+  .hint-touch { display: none; }
+  @media (hover: none) { .hint-hover { display: none; } .hint-touch { display: inline; } }
+  @media (max-width: 900px) { .b-shot { height: 320px; } }
   .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .project { display: flex; flex-direction: column; overflow: hidden; transition: transform .25s, box-shadow .25s; }
   .project:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
@@ -255,6 +269,11 @@
   .p-cover::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.35) 1px, transparent 1px); background-size: 16px 16px; -webkit-mask-image: linear-gradient(to top, transparent, #000); mask-image: linear-gradient(to top, transparent, #000); }
   .p-cover .big { position: absolute; right: 16px; top: 6px; font-size: 58px; font-weight: 800; letter-spacing: -0.05em; color: rgba(255,255,255,.28); line-height: 1; z-index: 1; }
   .p-cover .chip { position: relative; z-index: 1; font-family: var(--mono); font-size: 12px; font-weight: 500; color: #fff; background: rgba(0,0,0,.22); backdrop-filter: blur(6px); padding: 5px 11px; border-radius: 999px; }
+  .p-cover.has-shot { height: 180px; padding: 0; align-items: flex-end; background: var(--bg-2); border-bottom: 1px solid var(--line); }
+  .p-cover.has-shot::after { display: none; }
+  .p-shot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .5s ease; }
+  .project:hover .p-shot { transform: scale(1.04); }
+  .p-cover.has-shot .chip { margin: 0 0 14px 16px; background: rgba(15,23,42,.78); }
   .cv-clinidev { background: linear-gradient(135deg, #38bdf8 0%, #2563eb 70%); }
   .cv-top4 { background: linear-gradient(135deg, #34d399 0%, #0f766e 75%); }
   .cv-tsg { background: linear-gradient(135deg, #fbbf24 0%, #ea580c 75%); }
@@ -273,7 +292,7 @@
   .p-body li::before, .f-body li::before { content: ""; position: absolute; left: 4px; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-2); }
   .f-body li { font-size: 15.5px; }
   .p-stack { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px; }
-  .p-stack span { font-family: var(--mono); font-size: 12.5px; color: var(--soft); background: var(--bg-2); border: 1px solid var(--line); padding: 3px 10px; border-radius: 8px; }
+  .p-stack span { font-family: var(--mono); font-size: 14px; font-weight: 500; color: var(--text); background: var(--bg-2); border: 1px solid var(--line); padding: 5px 12px; border-radius: 9px; }
   .p-links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 10px; }
   .p-link { display: inline-flex; align-items: center; gap: 7px; color: var(--text); text-decoration: none; font-weight: 600; font-size: 14.5px; padding: 9px 15px; border-radius: 10px; border: 1px solid var(--line-2); background: var(--white); transition: color .2s, border-color .2s, background .2s; }
   .p-link:hover { color: var(--accent); border-color: var(--accent-2); }
@@ -295,6 +314,11 @@
   .t-org { color: var(--muted); font-size: 15px; }
   .t-item p { color: var(--soft); font-size: 15.5px; margin-top: 8px; }
   .certs h3.side { font-size: 12.5px; text-transform: uppercase; letter-spacing: .16em; color: var(--muted); font-weight: 700; margin-bottom: 14px; }
+  .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+  @media (max-width: 900px) { .cert-grid { grid-template-columns: 1fr; } }
+  a.cert { text-decoration: none; color: inherit; transition: border-color .2s, transform .2s; }
+  a.cert:hover { border-color: var(--accent-2); transform: translateY(-3px); }
+  .c-link { display: inline-block; margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--accent); }
   .cert { display: flex; gap: 14px; align-items: flex-start; padding: 18px; margin-bottom: 12px; background: var(--bg); box-shadow: none; }
   .c-ico { flex: none; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--ink); color: var(--on-ink); font-weight: 800; font-size: 13px; }
   .cert h4 { font-size: 16px; font-weight: 700; line-height: 1.35; }
@@ -337,13 +361,14 @@
 
 <header class="topbar" id="topbar">
   <div class="container nav">
-    <a class="logo" href="#top" aria-label="Leonardo Tello, inicio"><span class="logo-mark">LT</span>LEONARDO TELLO</a>
+    <a class="logo" href="#top" aria-label="Leonardo Tello, inicio"><span class="logo-mark"><span>LT</span></span>LEONARDO TELLO</a>
     <nav class="nav-links" id="navLinks" aria-label="Principal">
       <a href="#sobre-mi" data-i18n="n_about">Sobre mí</a>
       <a href="#tecnologias" data-i18n="n_tech">Tecnologías</a>
       <a href="#proyectos" data-i18n="n_proj">Proyectos</a>
-      <a href="#trayectoria" data-i18n="n_path">Trayectoria</a>
+      <a href="#certificaciones" data-i18n="certs">Certificaciones</a>
       <a href="#contacto" data-i18n="n_contact">Contacto</a>
+      <a class="cv-link" id="cvLink" href="/cv/Leonardo_Farid_Tello_Moscoso_CV.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg><span data-i18n="cv">CV</span></a>
     </nav>
     <div class="nav-right">
       <button class="theme-btn" id="themeBtn" type="button" aria-label="Cambiar tema claro/oscuro">
@@ -362,7 +387,7 @@
   <section class="hero" id="top">
     <div class="container hero-grid">
       <div>
-        <p class="eyebrow" data-i18n="eyebrow">Backend Developer · Trainee / Junior</p>
+        <p class="eyebrow" data-i18n="eyebrow">Junior Backend Developer</p>
         <h1><span data-i18n="hi">Hola, soy</span><br><span class="grad">Leonardo Tello</span></h1>
         <p class="lead" data-i18n="lead">Estudiante de Programación en la UTN FRGP. Desarrollo sistemas backend con Java, C# y SQL, y ya hice una web para un cliente real que hoy está online.</p>
         <div class="buttons">
@@ -387,7 +412,7 @@
           <picture><source srcset="/img/leo.webp" type="image/webp"><img class="photo" src="/img/leo-sm.jpg" fetchpriority="high" decoding="async" alt="Leonardo Tello" width="148" height="148"
                onerror="this.outerHTML='<div class=&quot;photo photo-fallback&quot;>LT</div>'"></picture>
         </div>
-        <h2>Leonardo Farid Tello Moscoso</h2>
+        <h2>Leonardo Tello</h2>
         <div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>General Pacheco, Tigre · Buenos Aires</div>
         <div><span class="status"><span class="dot"></span><span data-i18n="status">Disponible para trabajar</span></span></div>
         <div class="focus">
@@ -395,7 +420,7 @@
           <ul>
             <li data-i18n="f_1">APIs REST con Java y Spring Boot</li>
             <li data-i18n="f_2">Webs para negocios locales como freelance</li>
-            <li data-i18n="f_3">Mi primer puesto Trainee / Junior en backend</li>
+            <li data-i18n="f_3">Mi primer puesto como Junior Backend Developer</li>
           </ul>
         </div>
       </aside>
@@ -415,27 +440,25 @@
     <div class="container about-grid reveal">
       <div class="about-text">
         <p class="kicker"><span class="num">01</span><span data-i18n="n_about">Sobre mí</span></p>
-        <h2 class="title" data-i18n="about_t">Programo, enseño tenis y no paro de aprender.</h2>
+        <h2 class="title" data-i18n="about_t">Tenis + Informática</h2>
         <p data-i18n="about_1">Estudio la Tecnicatura Universitaria en Programación en la UTN FRGP. Ahí trabajé en proyectos en equipo con C#, C++, Java y SQL Server, con entregas por foro, versiones y aportes individuales.</p>
         <p data-i18n="about_2">En 2026 hice mi primer trabajo freelance: la web de un emprendimiento de Tigre, desde el relevamiento con el cliente hasta la publicación con su dominio. Ese proyecto me enseñó más que cualquier TP: un cliente real pide cambios, tiene apuro y quiere resultados.</p>
-        <p data-i18n="about_3">Desde 2024 también soy profesor de tenis. Me enseñó a explicar, a organizarme y a tratar con gente todos los días.</p>
+        <p data-i18n="about_3">Desde 2023 también soy profesor de tenis. Me enseñó a explicar, a organizarme y a tratar con gente todos los días.</p>
       </div>
       <div class="card code" aria-label="Resumen en código Java">
         <div class="code-bar"><i></i><i></i><i></i><span>Leonardo.java</span></div>
-<pre><span class="k">public class</span> <span class="t">Leonardo</span> {
-
-  <span class="t">String</span> role     = <span class="s">"Backend Developer"</span>;
+<pre><span class="k">public class</span> <span class="t">Leonardo</span>{
+  <span class="t">String</span> role = <span class="s">"Backend Developer"</span>;
   <span class="t">String</span> location = <span class="s">"Tigre, Buenos Aires"</span>;
-  <span class="t">String</span>[] stack  = { <span class="s">"Java"</span>, <span class="s">"C#"</span>, <span class="s">"SQL"</span> };
+  <span class="t">String</span>[] stack  = {<span class="s">"Java"</span>, <span class="s">"C#"</span>, <span class="s">"SQL"</span>};
   <span class="t">boolean</span> openToWork = <span class="n">true</span>;
 
-  <span class="c">// lo que estoy aprendiendo ahora</span>
-  <span class="t">String</span> <span class="f">learning</span>() {
+  <span class="c">//Lo que estoy aprendiendo ahora</span>
+  <span class="t">String</span> <span class="f">learning</span>(){
     <span class="k">return</span> <span class="s">"Spring Boot + REST APIs"</span>;
   }
-
-  <span class="t">String</span> <span class="f">nextStep</span>() {
-    <span class="k">return</span> <span class="s">"Trainee / Junior Backend"</span>;
+  <span class="t">String</span> <span class="f">nextStep</span>(){
+    <span class="k">return</span> <span class="s">"Junior Backend Developer"</span>;
   }
 }</pre>
       </div>
@@ -446,7 +469,7 @@
     <div class="container reveal">
       <p class="kicker"><span class="num">02</span><span data-i18n="n_tech">Tecnologías</span></p>
       <h2 class="title" data-i18n="tech_t">Con qué trabajo</h2>
-      <p class="sub" data-i18n="tech_s">Lo que usé en proyectos reales o de la facultad, y lo que estoy aprendiendo ahora.</p>
+      <p class="sub" data-i18n="tech_s">Lo que usé en los proyectos reales o de la facultad y lo que estoy aprendiendo ahora.</p>
       <div class="tech-groups">
         <div class="card tech-group">
           <h3>Backend <small>08</small></h3>
@@ -504,7 +527,7 @@
 
       <article class="card featured">
         <div class="f-body">
-          <div class="p-head"><span class="badge live"><span class="dot"></span><span data-i18n="live">Online · cliente real</span></span></div>
+          <div class="p-head"><span class="badge live"><span class="dot"></span><span data-i18n="live">Online · Cliente real</span></span></div>
           <h3 style="margin-top:12px">Petits Ambientaciones</h3>
           <div class="ctx" data-i18n="pet_ctx">Freelance · 2026 · Tigre, Buenos Aires</div>
           <p data-i18n="pet_d">Web para un emprendimiento que alquila juegos y mobiliario para fiestas infantiles. Relevé los requisitos con el dueño, la desarrollé, la publiqué con su dominio y seguí haciendo cambios después del lanzamiento.</p>
@@ -512,9 +535,8 @@
             <li data-i18n="pet_1">Catálogo con filtros por categoría, generado desde un archivo de datos</li>
             <li data-i18n="pet_2">Formulario de contacto que envía sin recargar la página (fetch + Formspree)</li>
             <li data-i18n="pet_3">Seguimiento de conversiones de Google Ads con Google Tag Manager</li>
-            <li data-i18n="pet_4">Código separado en módulos ES: datos, vista y lógica</li>
           </ul>
-          <div class="p-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>ES Modules</span><span>Cloudflare</span></div>
+          <div class="p-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Cloudflare</span></div>
           <div class="p-links">
             <a class="p-link solid" href="https://petitsambientaciones.com.ar" target="_blank" rel="noopener"><span data-i18n="visit">Ver sitio</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
@@ -522,22 +544,18 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
           </div>
         </div>
-        <div class="f-visual" aria-hidden="true">
-          <div class="browser">
+        <div class="f-visual">
+          <a class="browser" href="https://petitsambientaciones.com.ar" target="_blank" rel="noopener" aria-label="Ver la web de Petits Ambientaciones">
             <div class="b-bar"><i></i><i></i><i></i><span class="b-url">petitsambientaciones.com.ar</span></div>
-            <div class="b-page">
-              <div class="b-nav"><span class="b-logo">Petits</span><span class="b-menu"><i></i><i></i><i></i></span></div>
-              <div class="b-hero"><b></b><span></span><em></em></div>
-              <div class="b-tiles"><div></div><div></div><div></div></div>
-            </div>
-          </div>
-          <span class="wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg></span>
+            <div class="b-shot"><img src="/img/petits-full.webp" width="560" height="4678" alt="Captura de la web de Petits Ambientaciones" loading="lazy" decoding="async"></div>
+          </a>
+          <span class="b-hint hint-hover" data-i18n="hint">Pasá el mouse para recorrer la web</span><span class="b-hint hint-touch" data-i18n="hint_t">Deslizá dentro de la ventana para recorrer la web</span>
         </div>
       </article>
 
       <div class="project-grid">
         <article class="card project">
-          <div class="p-cover cv-clinidev"><span class="big">02</span><span class="chip">C# · ASP.NET · SQL Server</span></div>
+          <div class="p-cover cv-clinidev has-shot"><img class="p-shot" src="/img/proyectos/clinidev.webp" width="640" height="360" alt="Pantalla de inicio de Clinidev" loading="lazy" decoding="async"></div>
           <div class="p-body">
             <div class="p-head"><h3>Clinidev</h3><span class="badge" data-i18n="team6">Equipo de 6 · nota 10</span></div>
             <div class="ctx" data-i18n="cli_ctx">Programación III · UTN FRGP</div>
@@ -547,13 +565,14 @@
               <li data-i18n="cli_2">Procedimientos almacenados para el ABML</li>
               <li data-i18n="cli_3">Validación para que los turnos no se superpongan</li>
             </ul>
+            <div class="p-stack"><span>C#</span><span>ASP.NET</span><span>SQL Server</span></div>
             <div class="p-links"><a class="p-link" href="https://github.com/FaridTello/clinidev" target="_blank" rel="noopener"><span data-i18n="gh2">Ver en GitHub</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
           </div>
         </article>
 
         <article class="card project">
-          <div class="p-cover cv-top4"><span class="big">03</span><span class="chip">C++ · POO</span></div>
+          <div class="p-cover cv-top4 has-shot"><img class="p-shot" src="/img/proyectos/top4.webp" width="640" height="360" alt="Menú principal de Enfrentamientos Top 4 en consola" loading="lazy" decoding="async"></div>
           <div class="p-body">
             <div class="p-head"><h3>Enfrentamientos Top 4</h3><span class="badge" data-i18n="grade10">Nota 10</span></div>
             <div class="ctx" data-i18n="et_ctx">Programación II · UTN FRGP</div>
@@ -563,17 +582,19 @@
               <li data-i18n="et_2">Herencia y composición</li>
               <li data-i18n="et_3">Persistencia en archivos binarios</li>
             </ul>
+            <div class="p-stack"><span>C++</span><span data-i18n="oop">POO</span></div>
             <div class="p-links"><a class="p-link" href="https://github.com/FaridTello/Enfrentamientos-Top-4" target="_blank" rel="noopener"><span data-i18n="gh2">Ver en GitHub</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
           </div>
         </article>
 
         <article class="card project">
-          <div class="p-cover cv-tsg"><span class="big">04</span><span class="chip">Python · Flask · SQLite</span></div>
+          <div class="p-cover cv-tsg has-shot"><img class="p-shot" src="/img/proyectos/tsg.webp" width="640" height="360" alt="Pantalla de inicio de TennisSystemGestion" loading="lazy" decoding="async"></div>
           <div class="p-body">
             <div class="p-head"><h3>TennisSystemGestion</h3><span class="badge v1" data-i18n="v1">Primera versión</span></div>
             <div class="ctx" data-i18n="tsg_ctx">Proyecto final de CS50x · Harvard</div>
             <p data-i18n="tsg_d">Sistema de gestión para academias de tenis. Surgió de mi trabajo como profesor. Es la versión que entregué para CS50x.</p>
+            <div class="p-stack"><span>Python</span><span>Flask</span><span>SQLite</span></div>
             <div class="p-links"><a class="p-link" href="https://github.com/FaridTello/TennisSystemGestion" target="_blank" rel="noopener"><span data-i18n="gh2">Ver en GitHub</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
           </div>
@@ -582,38 +603,14 @@
     </div>
   </section>
 
-  <section class="section alt" id="trayectoria">
+  <section class="section alt" id="certificaciones">
     <div class="container reveal">
-      <p class="kicker"><span class="num">04</span><span data-i18n="n_path">Trayectoria</span></p>
-      <h2 class="title" data-i18n="path_t">Experiencia y formación</h2>
-      <p class="sub" data-i18n="path_s">Estudio, trabajo y hago proyectos al mismo tiempo.</p>
-      <div class="path-grid">
-        <div class="timeline">
-          <div class="card t-item">
-            <div class="t-when" data-i18n="w1">2026 — hoy</div>
-            <h3 data-i18n="x1_t">Desarrollador web freelance</h3>
-            <div class="t-org" data-i18n="x1_o">Emprendimientos de Tigre</div>
-            <p data-i18n="x1_p">Hago webs para negocios locales, desde el relevamiento hasta la puesta online. La primera ya está publicada y hay una segunda en desarrollo.</p>
-          </div>
-          <div class="card t-item">
-            <div class="t-when" data-i18n="w2">2024 — hoy</div>
-            <h3 data-i18n="x2_t">Tecnicatura Universitaria en Programación</h3>
-            <div class="t-org">UTN · Facultad Regional General Pacheco</div>
-            <p data-i18n="x2_p">14 de 17 materias aprobadas. Próximo paso: Ingeniería en Sistemas.</p>
-          </div>
-          <div class="card t-item">
-            <div class="t-when" data-i18n="w3">2024 — hoy</div>
-            <h3 data-i18n="x3_t">Profesor de tenis (título AAT)</h3>
-            <div class="t-org" data-i18n="x3_o">Clubes de Tigre, Buenos Aires</div>
-            <p data-i18n="x3_p">Clases individuales y grupales para todas las edades y niveles. Organizo mi agenda y trato directamente con alumnos y padres.</p>
-          </div>
-        </div>
-        <div class="certs">
-          <h3 class="side" data-i18n="certs">Certificaciones</h3>
-          <div class="card cert"><div class="c-ico">HR</div><div><h4>Software Engineer</h4><p data-i18n="c1">HackerRank · nov 2026 · resolución de problemas, SQL y REST API</p></div></div>
-          <div class="card cert"><div class="c-ico">CS</div><div><h4>CS50x</h4><p data-i18n="c2">Harvard University · completado</p></div></div>
-          <div class="card cert"><div class="c-ico">EN</div><div><h4 data-i18n="c3_t">Inglés B1</h4><p>EF SET</p></div></div>
-        </div>
+      <p class="kicker"><span class="num">04</span><span data-i18n="certs">Certificaciones</span></p>
+      <h2 class="title" data-i18n="certs_t">Certificaciones</h2>
+      <div class="cert-grid">
+        <a class="card cert" href="/certificados/hackerrank-software-engineer.pdf" target="_blank" rel="noopener"><div class="c-ico">HR</div><div><h4>Software Engineer</h4><p data-i18n="c1">HackerRank · nov 2026 · resolución de problemas, SQL y REST API</p><span class="c-link" data-i18n="see_cert">Ver certificado ↗</span></div></a>
+        <a class="card cert" href="https://cs50.harvard.edu/certificates/8ea789b1-56ce-4774-8759-5e1d598f4280" target="_blank" rel="noopener"><div class="c-ico">CS</div><div><h4>CS50x</h4><p data-i18n="c2">Harvard University · completado</p><span class="c-link" data-i18n="see_cert">Ver certificado ↗</span></div></a>
+        <div class="card cert"><div class="c-ico">EN</div><div><h4 data-i18n="c3_t">Inglés B1</h4><p>EF SET</p></div></div>
       </div>
     </div>
   </section>
@@ -623,7 +620,7 @@
       <div class="card contact-card">
         <p class="kicker"><span class="num">05</span><span data-i18n="n_contact">Contacto</span></p>
         <h2 class="title" data-i18n="ct_t">¿Hablamos?</h2>
-        <p data-i18n="ct_p">Busco mi primer trabajo como desarrollador Trainee o Junior en backend. Si tenés una oportunidad o un proyecto, escribime.</p>
+        <p data-i18n="ct_p">Busco mi primer trabajo como Junior Backend Developer. Si tenés una oportunidad o un proyecto, escribime.</p>
         <div class="buttons">
           <a class="button primary" href="https://www.linkedin.com/in/leonardo-farid-tello-moscoso" target="_blank" rel="noopener">LinkedIn</a>
           <a class="button secondary" href="https://github.com/FaridTello" target="_blank" rel="noopener">GitHub</a>
@@ -641,8 +638,7 @@
 
 <footer>
   <div class="container">
-    <span>© <span id="year">2026</span> Leonardo Tello · <span data-i18n="foot">Hecho a mano con HTML, CSS y JavaScript</span></span>
-    <a class="to-top" href="#top" data-i18n="top">Volver arriba ↑</a>
+    <span>© <span id="year">2026</span> Leonardo Tello</span>
   </div>
 </footer>
 
@@ -650,7 +646,7 @@
 const EN = {
   skip: "Skip to content",
   n_about: "About", n_tech: "Tech", n_proj: "Projects", n_path: "Background", n_contact: "Contact",
-  eyebrow: "Backend Developer · Trainee / Junior",
+  eyebrow: "Junior Backend Developer",
   hi: "Hi, I'm",
   lead: "Programming student at UTN FRGP. I build backend systems with Java, C# and SQL, and I've already shipped a website for a real client that's live today.",
   b_proj: "See projects", b_contact: "Get in touch",
@@ -658,23 +654,22 @@ const EN = {
   f_title: "Current focus",
   f_1: "REST APIs with Java and Spring Boot",
   f_2: "Freelance websites for local businesses",
-  f_3: "My first Trainee / Junior backend role",
+  f_3: "My first role as a Junior Backend Developer",
   s1: "courses passed", s2: "public projects", s3: "website live for a client", s4: "Harvard, completed",
-  about_t: "I code, I teach tennis, and I keep learning.",
+  about_t: "Tennis + Tech",
   about_1: "I'm studying the University Technical Degree in Programming at UTN FRGP. There I've worked on team projects with C#, C++, Java and SQL Server, with forum-based deliveries, versioning and individual contributions.",
   about_2: "In 2026 I did my first freelance job: the website for a small business in Tigre, from gathering requirements with the client to publishing it on its own domain. That project taught me more than any assignment: a real client asks for changes, is in a hurry and wants results.",
-  about_3: "I've also been a tennis instructor since 2024. It taught me to explain things clearly, stay organized and deal with people every day.",
+  about_3: "I've also been a tennis instructor since 2023. It taught me to explain things clearly, stay organized and deal with people every day.",
   tech_t: "What I work with",
-  tech_s: "What I've used in real or university projects, and what I'm learning now.",
+  tech_s: "What I've used in real and university projects and what I'm learning now.",
   learning: "Learning", g_db: "Databases", g_tools: "Tools & deployment",
   proj_t: "Featured projects",
   proj_s: "One real job for a client, plus the university projects that best show how I code.",
-  live: "Live · real client", pet_ctx: "Freelance · 2026 · Tigre, Buenos Aires",
+  live: "Live · Real client", pet_ctx: "Freelance · 2026 · Tigre, Buenos Aires",
   pet_d: "Website for a business that rents play equipment and furniture for kids' parties. I gathered the requirements with the owner, built it, published it on its own domain and kept making changes after launch.",
   pet_1: "Catalog with category filters, rendered from a data file",
   pet_2: "Contact form that sends without reloading the page (fetch + Formspree)",
   pet_3: "Google Ads conversion tracking with Google Tag Manager",
-  pet_4: "Code split into ES modules: data, view and logic",
   visit: "Visit site", gh: "Code", gh2: "View on GitHub",
   team6: "Team of 6 · grade 10/10", grade10: "Grade 10/10",
   cli_ctx: "Programming III · UTN FRGP",
@@ -697,8 +692,10 @@ const EN = {
   certs: "Certifications",
   c1: "HackerRank · Nov 2026 · problem solving, SQL and REST API",
   c2: "Harvard University · completed", c3_t: "English B1",
-  ct_t: "Let's talk?",
-  ct_p: "I'm looking for my first job as a Trainee or Junior backend developer. If you have an opportunity or a project, write to me.",
+  ct_t: "Let's talk.",
+  ct_p: "I'm looking for my first job as a Junior Backend Developer. If you have an opportunity or a project, write to me.",
+  cv: "Resume", hint: "Hover to scroll through the site", hint_t: "Swipe inside the window to scroll through the site", see_cert: "View certificate ↗", certs_t: "Certifications",
+  oop: "OOP",
   copy: "Copy", copied: "Copied!",
   foot: "Hand-built with HTML, CSS and JavaScript", top: "Back to top ↑"
 };
@@ -719,6 +716,8 @@ function setLang(lang) {
     if (t) el.textContent = t;
   });
   document.documentElement.lang = lang;
+  const cv = document.getElementById("cvLink");
+  if (cv) cv.href = lang === "es" ? "/cv/Leonardo_Farid_Tello_Moscoso_CV.pdf" : "/cv/Leonardo_Farid_Tello_Moscoso_CV_EN.pdf";
   langBtn.textContent = lang === "es" ? "EN" : "ES";
   langBtn.setAttribute("aria-label", lang === "es" ? "Switch to English" : "Cambiar a español");
   try { localStorage.setItem("lang", lang); } catch (e) {}
